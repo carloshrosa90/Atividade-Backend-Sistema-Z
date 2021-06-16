@@ -20,76 +20,76 @@ Um Sistema Z enviará para nós uma requisição POST com o status do sistema no
 4.5 - Tabelas: [dbo].[log],[dbo].[controle] <br>
 4.6 - Procedures: [dbo].[usp_GravarRegistro <br>
 
-<h5>PROCEDURES</h5>
+<h5>PROCEDURES</h5><br>
 
-Nome: usp_ListaRegistro
+Nome: usp_ListaRegistro<br>
 
-USE [master]
-CREATE procedure [dbo].[usp_ListaRegistro]  
-as  
-begin  
-select l.idSeq, convert(datetime,l.dtRegistro) as dtRegistro, l.jsonLog from log  l
-end
+USE [master]<br>
+CREATE procedure [dbo].[usp_ListaRegistro]  <br>
+as  <br>
+begin  <br>
+select l.idSeq, convert(datetime,l.dtRegistro) as dtRegistro, l.jsonLog from log  l<br>
+end<br>
+<br>
+USE [master]<br>
+alter procedure [dbo].[usp_GravarRegistro]  <br>
+@jsonLog varchar(max) = null,<br>
+@status varchar(max) = null<br>
+as<br>
+begin<br>
+	update controle set status = @status where id = 'Sistema Z' <br>
+	insert into log values (getdate(),@jsonLog)<br>
+	select * from log<br>
+end<br>
+<br>
+<br>
+<br>
+ValuesController.cs: Responsável pela gravação <br><br>
 
-USE [master]
-alter procedure [dbo].[usp_GravarRegistro]  
-@jsonLog varchar(max) = null,
-@status varchar(max) = null
-as
-begin
-	update controle set status = @status where id = 'Sistema Z' 
-	insert into log values (getdate(),@jsonLog)
-	select * from log
-end
+<h5>Endpoints</h5><br>
+#POST: /api/Values<br><br>
 
+Schemas:<br>
+{<br>
+date:	string nullable: true<br>
+status:	string nullable: true<br>
+}<br>
 
+<h5> REQUEST </h5><br><br>
 
-ValuesController.cs: Responsável pela gravação <br>
+EXEMPLO: POST<br><br>
 
-<h5>Endpoints</h5>
-#POST: /api/Values
+{<br>
+	"date": "2021-05-18 10:00:00",<br>
+	"status": "Sistema em TRAVANDO"<br>
+}<br><br>
 
-Schemas:
-{
-date:	string nullable: true
-status:	string nullable: true
-}
+RESPONSE: 200OK<br><br>
 
-<h5> REQUEST </h5>
+EXEMPLO: GET<br><br>
 
-EXEMPLO: POST
-
-{
-	"date": "2021-05-18 10:00:00",
-	"status": "Sistema em TRAVANDO"
-}
-
-RESPONSE: 200OK
-
-EXEMPLO: GET
-
-[
-    {
-        "idSeq": 3002,
-        "dtRegistro": "16/06/2021 16:42:58",
-        "jsonLog": "{\"date\":\"2021-05-18 10:00:00\",\"status\":\"Sistema em funcionamento\"}"
-    },
-    {
-        "idSeq": 3003,
-        "dtRegistro": "16/06/2021 16:44:54",
-        "jsonLog": "{\"date\":\"2021-05-18 10:00:00\",\"status\":\"Sistema em funcionamento\"}"
-    },
-    {
-        "idSeq": 3004,
-        "dtRegistro": "16/06/2021 16:56:56",
-        "jsonLog": "{\"date\":\"2021-05-18 10:00:00\",\"status\":\"Sistema em funcionamento\"}"
-    },
-    {
-        "idSeq": 3005,
-        "dtRegistro": "16/06/2021 16:56:56",
-        "jsonLog": "{\"date\":\"2021-05-18 10:00:00\",\"status\":\"Sistema em funcionamento\"}"
-    }
-]
+[<br>
+    {<br>
+        "idSeq": 3002,<br>
+        "dtRegistro": "16/06/2021 16:42:58",<br>
+        "jsonLog": "{\"date\":\"2021-05-18 10:00:00\",\"status\":\"Sistema em funcionamento\"}"<br>
+    },<br>
+    {<br>
+        "idSeq": 3003,<br>
+        "dtRegistro": "16/06/2021 16:44:54",<br>
+        "jsonLog": "{\"date\":\"2021-05-18 10:00:00\",\"status\":\"Sistema em funcionamento\"}"<br>
+    },<br>
+    {<br>
+        "idSeq": 3004,<br>
+        "dtRegistro": "16/06/2021 16:56:56",<br>
+        "jsonLog": "{\"date\":\"2021-05-18 10:00:00\",\"status\":\"Sistema em funcionamento\"}"<br>
+    },<br>
+    {<br>
+        "idSeq": 3005,<br>
+        "dtRegistro": "16/06/2021 16:56:56",<br>
+        "jsonLog": "{\"date\":\"2021-05-18 10:00:00\",\"status\":\"Sistema em funcionamento\"}"<br>
+    }<br>
+]<br>
 
 
 
