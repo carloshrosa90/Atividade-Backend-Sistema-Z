@@ -46,7 +46,7 @@ end<br>
 <br>
 ValuesController.cs: Responsável pela gravação <br><br>
 
-# <h5>Endpoints</h5><br>
+# Endpoints<br>
 #POST: /api/Values<br><br>
 
 Schemas:<br>
@@ -55,7 +55,7 @@ date:	string nullable: true<br>
 status:	string nullable: true<br>
 }<br>
 
-# <h5> REQUEST </h5><br><br>
+#  REQUEST <br>
 
 # EXEMPLO: POST<br><br>
 
