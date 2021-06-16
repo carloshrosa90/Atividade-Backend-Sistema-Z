@@ -47,7 +47,7 @@ end<br>
 ValuesController.cs: Responsável pela gravação <br><br>
 
 # Endpoints<br>
-#POST: /api/Values<br><br>
+POST: /api/Values<br><br>
 
 Schemas:<br>
 {<br>
@@ -57,7 +57,7 @@ status:	string nullable: true<br>
 
 #  REQUEST <br>
 
-# EXEMPLO: POST<br><br>
+ EXEMPLO: POST<br><br>
 
 {<br>
 	"date": "2021-05-18 10:00:00",<br>
@@ -66,7 +66,7 @@ status:	string nullable: true<br>
 
 # RESPONSE: 200OK<br><br>
 
-# EXEMPLO: GET<br><br>
+ EXEMPLO: GET<br><br>
 
 [<br>
     {<br>
