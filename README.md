@@ -61,7 +61,7 @@ status:	string nullable: true<br>
 
 {<br>
 	"date": "2021-05-18 10:00:00",<br>
-	"status": "Sistema em TRAVANDO"<br>
+	"status": "Sistema  em funcionamento"<br>
 }<br><br>
 
 # RESPONSE: 200OK<br><br>
