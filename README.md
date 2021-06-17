@@ -22,7 +22,7 @@ Um Sistema Z enviará para nós uma requisição POST com o status do sistema no
 
 # PROCEDURES<br>
 
-# Nome: usp_ListaRegistro<br>
+Nome: usp_ListaRegistro<br>
 
 USE [master]<br>
 CREATE procedure [dbo].[usp_ListaRegistro]  <br>
