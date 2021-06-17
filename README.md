@@ -20,7 +20,7 @@ Um Sistema Z enviará para nós uma requisição POST com o status do sistema no
 4.5 - Tabelas: [dbo].[log],[dbo].[controle] <br>
 4.6 - Procedures: [dbo].[usp_GravarRegistro <br>
 
-# <h5>PROCEDURES</h5><br>
+# PROCEDURES<br>
 
 # Nome: usp_ListaRegistro<br>
 
