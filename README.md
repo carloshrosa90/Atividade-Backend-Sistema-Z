@@ -31,6 +31,9 @@ begin  <br>
 select l.idSeq, convert(datetime,l.dtRegistro) as dtRegistro, l.jsonLog from log  l<br>
 end<br>
 <br>
+
+Nome: [usp_GravarRegistro <br>
+
 USE [master]<br>
 alter procedure [dbo].[usp_GravarRegistro]  <br>
 @jsonLog varchar(max) = null,<br>
